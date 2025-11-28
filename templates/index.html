@@ -1,0 +1,132 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>DR Detection + Localization</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body class="light">
+    <div class="container">
+
+        <header>
+            <h1>Retinal DR Detection + Localization</h1>
+
+            <div class="controls">
+                <button id="themeBtn">🌗 Theme</button>
+                <div id="clock" class="clock"></div>
+            </div>
+        </header>
+
+        <main>
+            <form action="/predict" method="POST" enctype="multipart/form-data">
+                <label>Select Retina Image:</label>
+                <input type="file" name="image" accept="image/*" required>
+                <button type="submit">Analyze Image</button>
+            </form>
+
+            <p class="notes">
+                Upload a fundus image. The system will classify DR and localize Optic Disc & Macula.
+            </p>
+        </main>
+
+        <footer>
+            <p>Built with Flask • Deep Learning • Xception</p>
+        </footer>
+
+    </div>
+
+    <script src="/static/js/theme.js"></script>
+</body>
+</html> -->
+
+<!-- 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Retinal DR Detection & Localization</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="light">
+
+<div class="container">
+    <h1>DR Classification + Localization</h1>
+
+    <div class="controls">
+        <button id="themeBtn">Toggle Theme</button>
+        <div id="clock"></div>
+    </div>
+
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <label>Upload Retina Image:</label>
+        <input type="file" name="image" accept="image/*" required>
+        <button type="submit">Analyze Image</button>
+    </form>
+</div>
+
+<script src="/static/js/theme.js"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RetinaSight – DR Detection & Localization</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/theme.js') }}" defer></script>
+</head>
+
+<body>
+
+    <!-- ---------------- Top Navigation Bar ---------------- -->
+    <header class="top-nav">
+        <div class="project-title">🔬 RetinaSight AI</div>
+
+        <div class="right-controls">
+            <button id="themeToggle" class="toggle-btn">Toggle Theme</button>
+            <div id="datetime" class="datetime"></div>
+        </div>
+    </header>
+
+
+    <!-- ---------------- Main Container ---------------- -->
+    <main class="container">
+
+        <h2 class="page-heading">Diabetic Retinopathy – Detection + Localization</h2>
+
+        <p class="sub-heading">Upload a retinal fundus image and let AI analyze DR severity and localize key structures.</p>
+
+        <form action="/predict" method="POST" enctype="multipart/form-data" class="upload-form">
+            <label class="custom-file-upload">
+                <input type="file" name="image" accept=".jpg,.png,.jpeg" required>
+                Choose Retina Image
+            </label>
+
+            <button type="submit" class="analyze-btn">Analyze Image</button>
+        </form>
+
+    </main>
+
+
+    <!-- ---------------- Footer / Summary ---------------- -->
+    <footer class="footer">
+        <p>
+            <strong>RetinaSight AI</strong> assists early screening of Diabetic Retinopathy by using a unified deep-learning model
+            that performs *binary DR classification* and *optic disc + macula localization* in a single step.
+        </p>
+    </footer>
+
+    <script>
+        // Live Time Updater
+        function updateTime() {
+            document.getElementById("datetime").innerText =
+                new Date().toLocaleString();
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
+
+</body>
+</html>

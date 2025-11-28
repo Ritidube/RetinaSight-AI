@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RetinaSight AI – Diagnosis Result</title>
+
+    <!-- Default dark theme -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <script>
+        // Always force dark theme on result page
+        window.onload = () => {
+            document.documentElement.setAttribute("data-theme", "dark");
+        };
+
+        function updateDateTime() {
+            const dt = new Date().toLocaleString();
+            document.getElementById("datetime").textContent = dt;
+        }
+        setInterval(updateDateTime, 1000);
+    </script>
+</head>
+
+<body>
+
+    <!-- TOP HEADER (same as index.html but no theme toggle button) -->
+    <header class="top-header">
+        <div class="logo-title">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/microscope.png" 
+                 width="30" style="margin-right:8px;" />
+            <span class="project-title">RetinaSight AI</span>
+        </div>
+
+        <div class="right-header">
+            <span id="datetime"></span>
+        </div>
+    </header>
+
+    <script>updateDateTime();</script>
+
+    <!-- MAIN CONTENT -->
+    <main class="result-container">
+        
+        <h1 class="page-heading">Diagnosis Result</h1>
+
+        <div class="result-box">
+            <h2 class="result-label">{{ label }}</h2>
+            <p class="prob-text">Probability (DR): <strong>{{ prob }}</strong></p>
+        </div>
+
+        <h2 class="loc-heading">Localization Output</h2>
+
+        <!-- FINAL IMAGE WITH BOXES -->
+        <div class="image-wrapper">
+            <img src="data:image/png;base64,{{ boxed_image }}" 
+                 alt="Result Image" class="result-image">
+        </div>
+
+        <div style="text-align:center; margin-top:30px;">
+            <a href="/" class="back-btn">Upload Another Image</a>
+        </div>
+
+    </main>
+
+</body>
+</html>

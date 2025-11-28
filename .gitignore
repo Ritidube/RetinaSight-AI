@@ -1,0 +1,10 @@
+models/
+uploads/
+__pycache__/
+*.h5
+*.keras
+*.pkl
+*.log
+*.DS_Store
+venv/
+.env
